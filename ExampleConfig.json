@@ -1,68 +1,16 @@
 {
 	"Folders": [
 		{
-			"FolderName": "Course Outline (Syllabus) & Updates",
-			"Files": []
+			"FolderName": "Folder 1",
+			"Files": ["file1.txt", "file2.txt"]
 		},
 		{
-			"FolderName": "General Materials for Roman History",
-			"Files": []
+			"FolderName": "Folder 2",
+			"Files": ["file1.txt", "file2.txt"]
 		},
 		{
-			"FolderName": "Week 00",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 01",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 02",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 03",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 04",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 05",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 06 - Reading Week",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 07",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 08",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 09",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 10",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 11",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 12",
-			"Files": []
-		},
-		{
-			"FolderName": "Week 13",
-			"Files": []
+			"FolderName": "Folder 3",
+			"Files": ["file1.txt", "file2.txt"]
 		}
 	]
 }
