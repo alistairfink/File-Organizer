@@ -1,11 +1,10 @@
 package main
 
 import (
-	"io/ioutil"
-	"os"
-	// "path/filepath"
 	"encoding/json"
 	"github.com/alistairfink/File-Organizer/Config"
+	"io/ioutil"
+	"os"
 )
 
 func main() {
@@ -50,23 +49,33 @@ func main() {
 	jsonParser := json.NewDecoder(configFile)
 	jsonParser.Decode(&config)
 
-	// for _, file := range files {
-	// 	println(file.Name(), file.ModTime().UTC().String())
-	// }
+	fileMap := make(map[string]os.FileInfo, len(files))
+	for _, file := range files {
+		if !file.IsDir() {
+			fileMap[file.Name()] = file
+		}
+	}
 
-	// var difffiles []os.FileInfo
-	// err = filepath.Walk(sourceFolder, func(path string, info os.FileInfo, err error) error {
-	// 	difffiles = append(difffiles, info)
-	// 	return nil
-	// })
+	for _, folder := range config.Folders {
+		rootFolder := destinationFolder + "/" + folder.FolderName
+		err = os.MkdirAll(rootFolder, os.ModePerm)
+		if err != nil {
+			println("Error Creating Folder:", rootFolder)
+		}
 
-	// if err != nil {
-	// 	panic(err)
-	// }
-
-	// for _, file := range difffiles {
-	// 	println(file.Name(), file.ModTime().UTC().String())
-	// }
+		for _, file := range folder.Files {
+			if _, exists := fileMap[file]; !exists {
+				println("Invalid File:", sourceFolder+"/"+file)
+			} else {
+				oldPath := sourceFolder + "/" + file
+				newPath := rootFolder + "/" + file
+				err := os.Rename(oldPath, newPath)
+				if err != nil {
+					println("Error Copying File:", file)
+				}
+			}
+		}
+	}
 }
 
 func exit() {
